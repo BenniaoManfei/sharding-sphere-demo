@@ -1,6 +1,7 @@
 package com.daniel.sharding.sphere.shardingdemo01.util.keygenerator;
 
 import com.google.common.base.Preconditions;
+import io.shardingsphere.core.api.algorithm.sharding.standard.PreciseShardingAlgorithm;
 import io.shardingsphere.core.keygen.DefaultKeyGenerator;
 import io.shardingsphere.core.keygen.KeyGenerator;
 import io.shardingsphere.core.keygen.TimeService;
