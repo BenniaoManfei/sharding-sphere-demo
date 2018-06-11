@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MasterSlave01Application {
 
 	public static void main(String[] args) {
+		System.err.println();
 		SpringApplication.run(MasterSlave01Application.class, args);
 	}
 }
