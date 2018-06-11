@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.daniel.sharding.sphere.masterslave03.mapper.RemoteRequestRecordMapper">
+
+    <!-- 开启二级缓存 -->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.daniel.sharding.sphere.masterslave03.entity.RemoteRequestRecord">
+        <id column="id" property="id" />
+        <result column="merchant_id" property="merchantId" />
+        <result column="mid" property="mid" />
+        <result column="api_type" property="apiType" />
+        <result column="data_exchange_type" property="dataExchangeType" />
+        <result column="post_time" property="postTime" />
+        <result column="url" property="url" />
+        <result column="param_type" property="param" />
+        <result column="param" property="param" />
+        <result column="method" property="method" />
+        <result column="response_time" property="responseTime" />
+        <result column="response_body" property="responseBody" />
+        <result column="exception_stack" property="exceptionStack" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, merchant_id, mid, api_type, post_time, url, param, method, response_code, response_time, response_body, exception_stack, create_time
+    </sql>
+
+</mapper>
