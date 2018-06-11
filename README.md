@@ -9,4 +9,5 @@ sharding-jdbc-demo:针对sharding-jdbc组件的demo程序
 
 2. master-slave-02: 基于mybatis的读写分离demo
 
+2. sharding-demo-01: 基于JPA的数据分片demo
 --- 
