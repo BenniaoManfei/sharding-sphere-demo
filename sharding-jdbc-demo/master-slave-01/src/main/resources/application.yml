@@ -1,0 +1,9 @@
+
+spring:
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        show_sql: true
+  profiles:
+    active: masterslave
