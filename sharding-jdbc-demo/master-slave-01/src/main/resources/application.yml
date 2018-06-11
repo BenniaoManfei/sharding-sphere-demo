@@ -7,3 +7,12 @@ spring:
         show_sql: true
   profiles:
     active: masterslave
+
+
+sharding:
+  jdbc:
+    config:
+      sharding:
+        props:
+          sql:
+            show: true # 显示sql
