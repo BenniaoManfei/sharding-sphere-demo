@@ -4,13 +4,13 @@ sharding:
   jdbc:
     datasource:
       names: ds_0,ds_1
-      ds_0:
+      ds_master_0:
         type: org.apache.commons.dbcp.BasicDataSource
         driver-class-name: com.mysql.jdbc.Driver
         url: jdbc:mysql://192.168.134.128:3306/demo_ds_0
         username: root
         password: 123456
-      ds_1:
+      ds_master_1:
         type: org.apache.commons.dbcp.BasicDataSource
         driver-class-name: com.mysql.jdbc.Driver
         url: jdbc:mysql://192.168.134.128:3306/demo_ds_1
