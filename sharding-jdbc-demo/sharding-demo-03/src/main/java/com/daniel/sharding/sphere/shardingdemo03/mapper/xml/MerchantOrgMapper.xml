@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.daniel.sharding.sphere.shardingdemo03.mapper.MerchantOrgMapper">
+
+    <!-- 开启二级缓存 -->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.daniel.sharding.sphere.shardingdemo03.entity.MerchantOrg">
+        <id column="id" property="id" />
+        <result column="org_id" property="orgId" />
+        <result column="parent_id" property="parentId" />
+        <result column="top_org_id" property="topOrgId" />
+        <result column="merchant_id" property="merchantId" />
+        <result column="enable" property="enable" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, org_id, parent_id, top_org_id, merchant_id,enable,create_time,update_time
+    </sql>
+
+</mapper>

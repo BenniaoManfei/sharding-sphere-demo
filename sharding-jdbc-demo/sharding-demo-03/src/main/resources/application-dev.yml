@@ -1,0 +1,49 @@
+
+
+sharding:
+  jdbc:
+    datasource:
+      names: ds_0,ds_1
+      ds_0:
+        type: org.apache.commons.dbcp.BasicDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://192.168.134.128:3306/demo_ds_0
+        username: root
+        password: 123456
+      ds_1:
+        type: org.apache.commons.dbcp.BasicDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://192.168.134.128:3306/demo_ds_1
+        username: root
+        password: 123456
+    config:
+      sharding:
+        # 默认指针列值生成器类类名称，缺省使用io.shardingsphere.core.keygen.DefaultKeyGenerator
+        # 如果自定义实现io.shardingsphere.core.keygen.KeyGenerator接口并提供无参构造方法
+        #default-key-generator-class-name: com.daniel.sharding.sphere.shardingdemo03.keygenerator.MyKeyGenerator
+        props:
+          sql:
+            show: true # 显示sql
+          #executor:
+            #size: 4 # 工作线程数量，默认是CPU核数
+        # 未配置分片规则的表将通过默认的数据源定位
+        default-data-source-name: ds_0
+        # 数据库分片策略
+        default-database-strategy:
+          inline:
+            sharding-column: merchant_id
+            algorithm-expression: ds_$->{merchant_id % 2}
+        # 默认的分表策略
+        #default-table-strategy:
+
+        tables:
+          t_remote_request_record:
+            actual-data-nodes: ds_$->{0..1}.t_remote_request_record_$->{0..1}
+            table-strategy:
+              inline:
+                sharding-column: id
+                algorithm-expression: t_remote_request_record_$->{id % 2}
+            key-generator-column-name: id
+            #key-generator-class-name: com.daniel.sharding.sphere.shardingdemo03.keygenerator.MyKeyGenerator
+server:
+  port: 9011
