@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS demo_ds_0.sys_merchant;
 CREATE TABLE demo_ds_0.sys_merchant (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `id` bigint(20) NOT NULL ,
   `org_id` bigint(20) DEFAULT NULL COMMENT '组织id(创建商户号)',
   `mid` varchar(64) DEFAULT NULL COMMENT '商户号',
   `keyt` varchar(64) DEFAULT NULL COMMENT '密钥',
@@ -17,7 +17,7 @@ CREATE TABLE demo_ds_0.sys_merchant (
 
 DROP TABLE IF EXISTS demo_ds_0.sys_merchant_org;
 CREATE TABLE demo_ds_0.sys_merchant_org (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `id` bigint(20) NOT NULL ,
   `org_id` bigint(20) DEFAULT NULL COMMENT '组织id',
   `parent_id` bigint(20) DEFAULT NULL COMMENT '父级组织id',
   `top_org_id` bigint(20) DEFAULT NULL COMMENT '该条线的顶级组织id',
@@ -33,7 +33,7 @@ CREATE TABLE demo_ds_0.sys_merchant_org (
 
 DROP TABLE IF EXISTS demo_ds_0.sys_merchant_uri;
 CREATE TABLE demo_ds_0.sys_merchant_uri (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `id` bigint(20) NOT NULL ,
   `merchant_id` bigint(20) DEFAULT NULL COMMENT '商户号id',
   `api_type` smallint(4) DEFAULT NULL COMMENT '接口类型',
   `request_uri` varchar(256) DEFAULT NULL COMMENT '请求URI',
@@ -45,7 +45,7 @@ CREATE TABLE demo_ds_0.sys_merchant_uri (
 
 DROP TABLE IF EXISTS demo_ds_0.t_remote_request_record_0;
 CREATE TABLE demo_ds_0.t_remote_request_record_0 (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `id` bigint(20) NOT NULL ,
   `merchant_id` bigint(20) DEFAULT NULL COMMENT '商户id',
   `mid` varchar(64) DEFAULT NULL COMMENT '商户号',
   `api_type` smallint(4) DEFAULT NULL COMMENT '接口类型',
@@ -64,7 +64,7 @@ CREATE TABLE demo_ds_0.t_remote_request_record_0 (
 
 DROP TABLE IF EXISTS demo_ds_0.t_remote_request_record_1;
 CREATE TABLE demo_ds_0.t_remote_request_record_1 (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `id` bigint(20) NOT NULL ,
   `merchant_id` bigint(20) DEFAULT NULL COMMENT '商户id',
   `mid` varchar(64) DEFAULT NULL COMMENT '商户号',
   `api_type` smallint(4) DEFAULT NULL COMMENT '接口类型',
@@ -84,7 +84,7 @@ CREATE TABLE demo_ds_0.t_remote_request_record_1 (
 
 DROP TABLE IF EXISTS demo_ds_1.t_remote_request_record_0;
 CREATE TABLE demo_ds_1.t_remote_request_record_0 (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `id` bigint(20) NOT NULL ,
   `merchant_id` bigint(20) DEFAULT NULL COMMENT '商户id',
   `mid` varchar(64) DEFAULT NULL COMMENT '商户号',
   `api_type` smallint(4) DEFAULT NULL COMMENT '接口类型',
@@ -103,7 +103,7 @@ CREATE TABLE demo_ds_1.t_remote_request_record_0 (
 
 DROP TABLE IF EXISTS demo_ds_1.t_remote_request_record_1;
 CREATE TABLE demo_ds_1.t_remote_request_record_1 (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `id` bigint(20) NOT NULL ,
   `merchant_id` bigint(20) DEFAULT NULL COMMENT '商户id',
   `mid` varchar(64) DEFAULT NULL COMMENT '商户号',
   `api_type` smallint(4) DEFAULT NULL COMMENT '接口类型',
