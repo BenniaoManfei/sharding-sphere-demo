@@ -16,4 +16,7 @@ sharding-jdbc-demo:针对sharding-jdbc组件的demo程序
 5. sharding-demo-02: 基于mybatis的数据分片demo
 
 6. sharding-demo-03: 基于mybatis-plus的数据分片demo
+
+7. sharding-masterslave-01: 基于JPA的数据分片+读写分离demo
+
 --- 
