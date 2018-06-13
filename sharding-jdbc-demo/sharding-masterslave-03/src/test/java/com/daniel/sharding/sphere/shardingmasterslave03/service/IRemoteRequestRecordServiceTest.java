@@ -48,8 +48,8 @@ public class IRemoteRequestRecordServiceTest extends ShardingMasterslave03Applic
         ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
         for (int j = 0; j < 10; j++) {
             cachedThreadPool.execute(() -> {
-                for (int i = 0; i < 1000; i++) {
-                    Merchant merchant = merchantService.selectById(3L);
+                for (int i = 0; i < 100; i++) {
+                    Merchant merchant = merchantService.selectById(1L);
                     RemoteRequestRecord record = new RemoteRequestRecord();
                     record.setMerchantId(merchant.getId());
                     record.setMid(merchant.getMid());
@@ -58,6 +58,12 @@ public class IRemoteRequestRecordServiceTest extends ShardingMasterslave03Applic
                     record.setUrl(merchant.getBaseUrl());
                     record.setParamType(RequestParamTypeEnum.JSON);
                     record.setCreateTime(new Date());
+
+                    try {
+                        TimeUnit.MICROSECONDS.sleep(100L);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
 
                     remoteRequestRecordService.insert(record);
                 }

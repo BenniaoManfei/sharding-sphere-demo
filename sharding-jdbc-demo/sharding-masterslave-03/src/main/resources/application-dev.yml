@@ -3,17 +3,11 @@
 sharding:
   jdbc:
     datasource:
-      names: ds_master_0,ds_master_1,ds_master_0_slave_0,ds_master_1_slave_0
+      names: ds_master_0,ds_master_0_slave_0,ds_master_0_slave_1,ds_master_1,ds_master_1_slave_0,ds_master_1_slave_1
       ds_master_0:
         type: org.apache.commons.dbcp.BasicDataSource
         driver-class-name: com.mysql.jdbc.Driver
         url: jdbc:mysql://192.168.134.128:3306/demo_ds_0
-        username: root
-        password: 123456
-      ds_master_1:
-        type: org.apache.commons.dbcp.BasicDataSource
-        driver-class-name: com.mysql.jdbc.Driver
-        url: jdbc:mysql://192.168.134.128:3306/demo_ds_1
         username: root
         password: 123456
       ds_master_0_slave_0:
@@ -22,11 +16,29 @@ sharding:
         url: jdbc:mysql://192.168.134.128:3316/demo_ds_0
         username: slave_reader
         password: 123456
+      ds_master_0_slave_1:
+        type: org.apache.commons.dbcp.BasicDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://192.168.134.128:3326/demo_ds_0
+        username: reader
+        password: 123456
+      ds_master_1:
+        type: org.apache.commons.dbcp.BasicDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://192.168.134.128:3306/demo_ds_1
+        username: root
+        password: 123456
       ds_master_1_slave_0:
         type: org.apache.commons.dbcp.BasicDataSource
         driver-class-name: com.mysql.jdbc.Driver
         url: jdbc:mysql://192.168.134.128:3316/demo_ds_1
         username: slave_reader
+        password: 123456
+      ds_master_1_slave_1:
+        type: org.apache.commons.dbcp.BasicDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://192.168.134.128:3326/demo_ds_1
+        username: reader
         password: 123456
     config:
       sharding:
@@ -60,12 +72,12 @@ sharding:
         master-slave-rules:
           ds_0:
             master-data-source-name: ds_master_0
-            slave-data-source-names: ds_master_0_slave_0
+            slave-data-source-names: ds_master_0_slave_0,ds_master_0_slave_1
             load-balance-algorithm-type: ROUND_ROBIN
             #load-balance-algorithm-class-name: 从库负载均衡算法类名称。该类需实现MasterSlaveLoadBalanceAlgorithm接口且提供无参数构造器
           ds_1:
             master-data-source-name: ds_master_1
-            slave-data-source-names: ds_master_1_slave_0
+            slave-data-source-names: ds_master_1_slave_0,ds_master_1_slave_1
             load-balance-algorithm-type: RANDOM
             #load-balance-algorithm-class-name: 从库负载均衡算法类名称。该类需实现MasterSlaveLoadBalanceAlgorithm接口且提供无参数构造器
 server:
